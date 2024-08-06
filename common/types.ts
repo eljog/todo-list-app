@@ -7,4 +7,5 @@ export interface TodoItem {
 export interface ITodoApis {
     create(title: string): Promise<TodoItem>;
     fetchAll(): Promise<TodoItem[]>;
+    deleteTodo(id: number): Promise<void>;
 }

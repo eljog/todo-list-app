@@ -41,6 +41,16 @@ app.post("/", async (req: Request, res: Response) => {
   return res.send(item)
 });
 
+app.delete("/:id", async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id)
+  if (isNaN(id)) {
+    return res.status(400).send("Invalid ID")
+  }
+
+  await server.deleteTodo(id)
+  return res.send("Deleted")
+});
+
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
