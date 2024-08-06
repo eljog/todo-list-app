@@ -8,5 +8,8 @@
     {
       "path": "../common"
     }
+  ],
+  "exclude": [
+    "dist/**/*"
   ]
 }

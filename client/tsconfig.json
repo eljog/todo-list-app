@@ -41,5 +41,8 @@
     {
       "path": "../common"
     }
+  ],
+  "exclude": [
+    "dist/**/*"
   ]
 }

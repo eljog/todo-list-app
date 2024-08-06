@@ -5,7 +5,14 @@
         "./server"
     ],
     "devDependencies": {
+        "concurrently": "^8.2.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.5.4"
+    },
+    "scripts": {
+        "server": "npm run dev --prefix server",
+        "client": "npm run start --prefix client",
+        "build": "npx tsc --build tsconfig.build.json",
+        "start": "concurrently \"npm run server\" \"npm run client\""
     }
 }
