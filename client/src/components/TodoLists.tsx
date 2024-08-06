@@ -17,8 +17,8 @@ import DeleteIcon from '@mui/icons-material/Delete'
 const label = { inputProps: { 'aria-label': 'Todo completed or not' } };
 
 
-export default function TodoLists(data: { todos: TodoItem[] }) {
-  const { todos } = data
+export default function TodoLists(data: { todos: TodoItem[]; deleteTodo: (id: number) => {}}) {
+  const { todos, deleteTodo } = data
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -39,7 +39,7 @@ export default function TodoLists(data: { todos: TodoItem[] }) {
                 {row.title}
               </TableCell>
               <TableCell align="right"><Checkbox {...label} checked={row.completed} /></TableCell>
-              <TableCell align="right"><Button color='inherit' startIcon={<DeleteIcon />}>
+              <TableCell align="right"><Button color='inherit' onClick={() => deleteTodo(row.id)} startIcon={<DeleteIcon />}>
               </Button></TableCell>
             </TableRow>
           ))}

@@ -11,20 +11,20 @@ function App() {
   const [todos, setTodos] = React.useState<TodoItem[]>([])
   const [error, setError] = React.useState<string | null>(null)
 
-  React.useEffect(() => {
-    const apis = getApiClient()
-    fetchAllTodos()
-
-    async function fetchAllTodos() {
-      try {
-        const data = await apis.fetchAll()
-        setTodos(data)
-      } catch (e) {
-        if (typeof e === 'string') {
-          setError(e)
-        }
+  async function fetchAllTodos() {
+    try {
+      const apis = getApiClient()
+      const data = await apis.fetchAll()
+      setTodos(data)
+    } catch (e) {
+      if (typeof e === 'string') {
+        setError(e)
       }
     }
+  }
+
+  React.useEffect(() => {
+    fetchAllTodos()
   }, [])
 
   const create = useCallback(async (title: string) => {
@@ -32,6 +32,20 @@ function App() {
     try {
       const data = await apis.create(title)
       setTodos(todos => [...todos, data])
+    } catch (e) {
+      if (typeof e === 'string') {
+        setError(e)
+      }
+    }
+  }, [todos])
+
+  const deleteTodo = useCallback(async (id: number) => {
+    const apis = getApiClient()
+    try {
+      // TODO: Call delete API
+      alert(`Deleting ${id}: ${todos.find(x => x.id == id)?.title}`)
+
+      fetchAllTodos()
     } catch (e) {
       if (typeof e === 'string') {
         setError(e)
@@ -59,7 +73,7 @@ function App() {
         <TodoAppBar create={create} />
         <Grid>
           {error && <Alert severity="error">This is an error Alert.</Alert>}
-          <TodoLists todos={todos} />
+          <TodoLists todos={todos} deleteTodo={deleteTodo} />
         </Grid>
       </Container>
     </div>
