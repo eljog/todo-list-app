@@ -1,7 +1,7 @@
 import { ITodoApis, TodoItem } from "@todo-app/common";
 import axios, { AxiosResponse } from "axios";
 
-const endPoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-3001.app.github.dev/`
+const endPoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-3001.app.github.dev`
 
 console.log(`URL: ${endPoint}`)
 
