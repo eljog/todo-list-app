@@ -1,0 +1,14 @@
+{
+  "name": "@todo-app/common",
+  "version": "1.0.0",
+  "main": "types.js",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

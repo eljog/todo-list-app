@@ -1,0 +1,45 @@
+// {
+//   "extends": "../tsconfig.json",
+//   "compilerOptions": {
+//     "lib": [
+//       "dom",
+//       "dom.iterable",
+//       "esnext"
+//     ],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "strict": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "module": "esnext",
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+//     "rootDir": "src",
+//     "outDir": "dist"
+//   },
+//   "include": [
+//     "src"
+//   ],
+//   "references": [
+//     {
+//       "path": "../common"
+//     }
+//   ]
+// }
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "references": [
+    {
+      "path": "../common"
+    }
+  ]
+}
