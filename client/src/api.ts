@@ -23,6 +23,13 @@ class TodoApiClient implements ITodoApis {
             throw res.data
         }
     }
+
+    async deleteTodo(id: number): Promise<void> {
+        const res = await axios.delete(`${endPoint}/${id}`);
+        if (res.status != 200) {
+            throw res.data
+        }
+    }
 }
 
 const client: ITodoApis = new TodoApiClient()

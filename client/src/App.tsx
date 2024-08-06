@@ -43,6 +43,7 @@ function App() {
     const apis = getApiClient()
     try {
       // TODO: Call delete API
+      await apis.deleteTodo(id)
       alert(`Deleting ${id}: ${todos.find(x => x.id == id)?.title}`)
 
       fetchAllTodos()

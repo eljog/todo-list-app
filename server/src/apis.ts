@@ -1,5 +1,8 @@
 import { ITodoApis, TodoItem } from "@todo-app/common";
 
+
+
+
 class TodoApiServer implements ITodoApis {
     private todos: TodoItem[] = []
     private idCounter = 1
@@ -11,6 +14,10 @@ class TodoApiServer implements ITodoApis {
     }
     fetchAll(): Promise<TodoItem[]> {
         return Promise.resolve(this.todos)
+    }
+    deleteTodo = (id: number): Promise<void> => {
+        this.todos = this.todos.filter(todo => todo.id !== id)
+        return Promise.resolve()
     }
 
 }
